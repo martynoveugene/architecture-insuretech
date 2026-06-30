@@ -16,5 +16,7 @@ spec:
         - name: mem-container
           image: ghcr.io/yandex-practicum/scaletestapp
           resources:
+            requests:
+              memory: "8Mi"
             limits:
-              memory: "30Mi"
+              memory: "10Mi"
