@@ -15,6 +15,9 @@ spec:
       containers:
         - name: mem-container
           image: ghcr.io/yandex-practicum/scaletestapp
+          ports:
+            - containerPort: 8080
+              name: http
           resources:
             requests:
               memory: "8Mi"
