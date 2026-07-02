@@ -1,0 +1,10 @@
+query GetClientWithRelatives {
+    client(id: "user-123") {
+        id
+        relatives {
+            id
+            name
+            age
+        }
+    }
+}

@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mem-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mem-app
+  template:
+    metadata:
+      labels:
+        app: mem-app
+    spec:
+      containers:
+        - name: mem-container
+          image: ghcr.io/yandex-practicum/scaletestapp
+          ports:
+            - containerPort: 8080
+              name: http
+          resources:
+            requests:
+              memory: "8Mi"
+            limits:
+              memory: "10Mi"

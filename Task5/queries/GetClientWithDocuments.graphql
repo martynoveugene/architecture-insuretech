@@ -1,0 +1,19 @@
+query GetClientWithDocuments {
+    client(id: "user-123") {
+        id
+        documents {
+            id
+            type
+            number
+        }
+    }
+}
+
+query GetClientAllFieldsWithDocuments {
+    client(id: "user-123") {
+        ...AllClientFields
+        documents {
+            id
+        }
+    }
+}

@@ -1,0 +1,15 @@
+prometheus:
+  url: "http://prometheus-kube-prometheus-prometheus"
+  port: 9090
+rules:
+  default: false
+  custom:
+    - seriesQuery: 'http_requests_total{job="monitoring/mem-app-monitor"}'
+      resources:
+        overrides:
+          namespace: {resource: "namespace"}
+          pod: {resource: "pod"}
+      name:
+        matches: "^http_requests_total"
+        as: "http_requests_per_second"
+      metricsQuery: 'sum(rate(http_requests_total{pod!=""}[30s])) by (pod)'
